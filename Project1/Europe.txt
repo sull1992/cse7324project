@@ -1,0 +1,70 @@
+A
+Albania
+Andorra
+Armenia
+Austria
+Azerbaijan
+B
+Belarus
+Belgium
+Bosnia and Herzegovina
+Bulgaria
+C
+Croatia
+Cyprus
+Czech Republic
+D
+Denmark
+E
+Estonia
+F
+Finland
+France
+G
+Georgia
+Germany
+Greece
+H
+Hungary
+I
+Iceland
+Ireland
+Italy
+K
+Kazakhstan
+Kosovo
+L
+Latvia
+Liechtenstein
+Lithuania
+Luxembourg
+M
+Macedonia (FYROM)
+Malta
+Moldova
+Monaco
+Montenegro
+N
+Netherlands
+Norway
+P
+Poland
+Portugal
+R
+Romania
+Russia
+S
+San Marino
+Serbia
+Slovakia
+Slovenia
+Spain
+Sweden
+Switzerland
+T
+Turkey
+U
+Ukraine
+United Kingdom (UK)
+V
+Vatican City (Holy See)
