@@ -1,0 +1,67 @@
+import pandas as pd
+import altair as alt
+from vega_datasets import data
+alt.renderers.enable('notebook')
+with open('C:/Users/sulem/Desktop/pyton mach/share-of-cumulative-co2.csv') as fid:
+    for idx, row in enumerate(fid):
+        print(row,end='')
+        if idx >= 4:
+            break
+            
+#importing all date            
+df = pd.read_csv('C:/Users/sulem/Desktop/pyton mach/share-of-cumulative-co2.csv') # read in the csv file   
+df_sector = pd.read_csv('C:/Users/sulem/Desktop/pyton mach/global-carbon-dioxide-emissions-by-sector-gg-co.csv') # read in the csv file   
+df_GDP = pd.read_csv('C:/Users/sulem/Desktop/pyton mach/co-emissions-per-capita-vs-gdp-per-capita-international-.csv') # read in the csv file
+df.describe() 
+df_grouped = df.groupby(by=['Entity'])
+
+#filter the data to show only continents
+contant =['Africa',' Americas','Asia and Pacific','Australia','EU-28','Europe (other)','Middle East']
+contants =['Africa','Americas','Asia','Australia','Europe']  
+contantg =['Africa',' Americas','Asia and Pacific','Australia','EU-28','Europe (other)','Middle East']
+contantA =['Afghanistan']
+#
+
+dfset= df[df.Entity.isin(contant)]
+dfsets= df_sector[df_sector.Entity.isin(contants)]
+dfsetg= df_GDP[df_GDP.Entity.isin(contantA )]
+source=dfset
+sources=dfsets
+sourceg=dfsetg
+sourceg
+df_grouped = dfsets.groupby(by=['Entity'])
+df_grouped
+
+
+# show industry with time 
+import altair as alt
+from vega_datasets import data
+alt.renderers.enable('notebook')
+
+df_nodup=df.drop_duplicates('Entity')
+df_nodup.Entity
+#source = df.tail(5000)
+
+
+alt.Chart(sources).mark_area().encode(
+    x="Year:N",
+    y=alt.Y("Industry", stack="normalize"),
+    color="Entity:N"
+)
+
+
+# show co2 emm with time 
+import altair as alt
+from vega_datasets import data
+
+#source = df
+alt.data_transformers.enable('default', max_rows=None)
+alt.Chart(source).mark_area().encode(
+    alt.X('Year:N',
+        axis=alt.Axis(format='%Y', domain=False, tickSize=0)
+    ),
+    alt.Y("Share of global cumulative CO₂ emissions (%):Q", stack='center', axis=None),
+    alt.Color('Entity:N',
+        scale=alt.Scale(scheme='category20b')
+    )
+).interactive()
